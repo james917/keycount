@@ -1,0 +1,33 @@
+<html>
+<head>  
+<script>
+    var list = {};
+    function increaseCounter(variable) {
+        if(!list[variable])
+            list[variable]=1;
+        else
+            list[variable]++;
+    }
+    function send() {
+        var keys = [];
+        for(x in list)
+            keys.push([x,list[x]]);
+        keys.sort();
+
+        var s = "Counted", i;
+        for( i = 0; i < keys.length; i++)
+            s += " " + keys[i][0] + keys[i][1];
+        document.getElementById('textarea').value = s;
+    }
+</script>
+</head>
+<body>
+<textarea id="textarea" rows="20" cols="50"></textarea>
+<hr>
+<br/>
+<br/>
+<button onclick="increaseCounter('John')">John</button>
+<button onclick="increaseCounter('Jane')">Jane</button>
+<button onclick="send()">Send</button>
+</body>
+</html>
